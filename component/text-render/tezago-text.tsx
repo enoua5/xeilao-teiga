@@ -48,8 +48,8 @@ export default function TezagoText({
         renderImageRef(image_ref.current);
     }, [renderImageRef]);
 
-    // eslint-disable-next-line @next/next/no-img-element
     const image = (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
             ref={renderImageRef}
             src="#"
