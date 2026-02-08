@@ -57,7 +57,9 @@ export default function RootLayout({
                                 px="xl"
                                 justify="space-between"
                             >
-                                <Text size="xl"><TezagoText text="Xeilao Teiga" ruby/></Text>
+                                <Text size="xl">
+                                    <TezagoText text="Xeilao Teiga" ruby />
+                                </Text>
                                 <ButtonGroup>
                                     <ActionIcon
                                         component={Link}
