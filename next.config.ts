@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     output: "export",
-    basePath: "/zheilao-teiga",
-    assetPrefix: "/zheilao-teiga",
-    distDir: "/zheilao-teiga",
+    basePath: "/xeilao-teiga",
+    assetPrefix: "/xeilao-teiga",
+    distDir: "/xeilao-teiga",
 };
 
 export default nextConfig;

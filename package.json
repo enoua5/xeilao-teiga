@@ -1,12 +1,12 @@
 {
-  "name": "zheilao-teiga",
+  "name": "xeilao-teiga",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "deploy": "npm run build && touch ./zheilao-teiga/.nojekyll",
+    "deploy": "npm run build && touch ./xeilao-teiga/.nojekyll",
     "lint": "eslint",
     "format": "prettier --write app component"
   },

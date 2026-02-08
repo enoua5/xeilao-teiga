@@ -23,13 +23,14 @@ import {
     Route as IconMapRoute,
 } from "tabler-icons-react";
 import Link from "next/link";
+import TezagoText from "@/component/text-render/tezago-text";
 
 export const metadata: Metadata = {
     title: {
         template: "%s | ZT",
-        default: "Zheilao Teiga",
+        default: "Xeilao Teiga",
     },
-    description: "Zheilao Teiga information archive",
+    description: "Xeilao Teiga information archive",
 };
 
 const theme = createTheme({});
@@ -56,11 +57,11 @@ export default function RootLayout({
                                 px="xl"
                                 justify="space-between"
                             >
-                                <Text size="xl">Zheilao Teiga</Text>
+                                <Text size="xl"><TezagoText text="Xeilao Teiga" ruby/></Text>
                                 <ButtonGroup>
                                     <ActionIcon
                                         component={Link}
-                                        href="https://github.com/enoua5/zheilao-teiga"
+                                        href="https://github.com/enoua5/xeilao-teiga"
                                         target="_blank"
                                         variant="default"
                                         color="black"
