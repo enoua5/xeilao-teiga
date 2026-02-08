@@ -124,6 +124,9 @@ const full_vowel_data: Map<
             );
             const line_offset = 2;
 
+            path.moveTo(left, top);
+            path.lineTo(right, top);
+
             path.moveTo(middle - line_offset, top);
             path.bezierCurveTo(
                 middle - line_offset,
