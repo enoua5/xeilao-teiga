@@ -12,12 +12,17 @@ import { useComputedColorScheme } from "@mantine/core";
 
 export interface TezagoTextProps extends TezagoRenderOptions {
     text: string;
+    ruby?: boolean;
 }
 
 /**
  * Tezago text-rendering box
  */
-export default function TezagoText({ text, ...options }: TezagoTextProps) {
+export default function TezagoText({
+    text,
+    ruby,
+    ...options
+}: TezagoTextProps) {
     const image_ref: RefObject<HTMLImageElement | null> = useRef(null);
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
     const dark_mode = useComputedColorScheme("light") == "dark";
@@ -34,7 +39,6 @@ export default function TezagoText({ text, ...options }: TezagoTextProps) {
                     color,
                 });
                 image.src = canvas.toDataURL();
-                image.alt = text;
             }
         },
         [canvas, color, options, text]
@@ -45,5 +49,25 @@ export default function TezagoText({ text, ...options }: TezagoTextProps) {
     }, [renderImageRef]);
 
     // eslint-disable-next-line @next/next/no-img-element
-    return <img ref={renderImageRef} src="#" alt="" style={{display: "inline", height: 16}} />;
+    const image = (
+        <img
+            ref={renderImageRef}
+            src="#"
+            alt={text}
+            style={{ display: "inline", height: 16 }}
+        />
+    );
+
+    if (ruby) {
+        return (
+            <ruby>
+                {image}
+                <rp>(</rp>
+                <rt style={{ paddingBottom: "0.4em" }}>{text}</rt>
+                <rp>)</rp>
+            </ruby>
+        );
+    } else {
+        return image;
+    }
 }
