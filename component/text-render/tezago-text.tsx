@@ -49,13 +49,15 @@ export default function TezagoText({
     }, [renderImageRef]);
 
     const image = (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-            ref={renderImageRef}
-            src="#"
-            alt={text}
-            style={{ display: "inline", height: 16 }}
-        />
+        <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+                ref={renderImageRef}
+                src="#"
+                alt={text}
+                style={{ display: "inline", height: "1em" }}
+            />
+        </div>
     );
 
     if (ruby) {

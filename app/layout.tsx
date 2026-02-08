@@ -16,7 +16,12 @@ import {
     Stack,
     Text,
 } from "@mantine/core";
-import { Ballpen, BrandGithub, Home as IconHome } from "tabler-icons-react";
+import {
+    Ballpen,
+    BrandGithub,
+    Home as IconHome,
+    Route as IconMapRoute,
+} from "tabler-icons-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -73,6 +78,12 @@ export default function RootLayout({
                                     label="Home"
                                     href="/"
                                     leftSection={<IconHome />}
+                                />
+                                <NavLink
+                                    component={Link}
+                                    label="Campaign home"
+                                    href="/campaign"
+                                    leftSection={<IconMapRoute />}
                                 />
                                 <NavLink
                                     component={Link}
