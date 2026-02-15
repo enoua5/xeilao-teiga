@@ -25,8 +25,6 @@ export default function TezagoText({
 }: TezagoTextProps) {
     const image_ref: RefObject<HTMLImageElement | null> = useRef(null);
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
-    const dark_mode = useComputedColorScheme("light") == "dark";
-    const color = (options.color ?? dark_mode) ? "white" : "black";
 
     useEffect(() => setCanvas(document.createElement("canvas")), []);
 
@@ -34,14 +32,16 @@ export default function TezagoText({
         (image: HTMLImageElement | null) => {
             image_ref.current = image;
             if (image && canvas) {
+                const style_color = getComputedStyle(image).color;
+
                 renderTezago(canvas, text, {
                     ...options,
-                    color,
+                    color: options.color ?? style_color,
                 });
                 image.src = canvas.toDataURL();
             }
         },
-        [canvas, color, options, text]
+        [canvas, options, text]
     );
 
     useEffect(() => {
