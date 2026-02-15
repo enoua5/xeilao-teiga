@@ -8,7 +8,6 @@ import React, {
     useState,
 } from "react";
 import { renderTezago, TezagoRenderOptions } from "./render-tezago";
-import { useComputedColorScheme } from "@mantine/core";
 
 export interface TezagoTextProps extends TezagoRenderOptions {
     text: string;
