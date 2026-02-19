@@ -27,7 +27,7 @@ import TezagoText from "@/component/text-render/tezago-text";
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | ZT",
+        template: "%s | XT",
         default: "Xeilao Teiga",
     },
     description: "Xeilao Teiga information archive",
