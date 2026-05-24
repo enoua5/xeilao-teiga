@@ -2,6 +2,7 @@ import TezagoText from "@/component/text-render/tezago-text";
 import { Stack, Text, Title } from "@mantine/core";
 import { Metadata } from "next";
 import Link from "next/link";
+import { AZS_VANGUARD } from "../wiki/ship/azs-vanguard/page";
 
 export const metadata: Metadata = {
     title: "Campaign",
@@ -15,9 +16,8 @@ export default function CampaignHome() {
             </Title>
             <Text>
                 You are the crew and passengers aboard the{" "}
-                <Link href="/wiki/azs-vanguard">
-                    AZS Vanguard (
-                    <TezagoText text="Veina Tezago" ruby />)
+                <Link href="/wiki/ship/azs-vanguard">
+                    {AZS_VANGUARD}
                 </Link>
                 . The ship has been chartered to the{" "}
                 <Link href="/wiki/todo">

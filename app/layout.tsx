@@ -21,6 +21,7 @@ import {
     BrandGithub,
     Home as IconHome,
     Route as IconMapRoute,
+    Article as IconArticle
 } from "tabler-icons-react";
 import Link from "next/link";
 import TezagoText from "@/component/text-render/tezago-text";
@@ -87,6 +88,12 @@ export default function RootLayout({
                                     label="Campaign home"
                                     href="/campaign"
                                     leftSection={<IconMapRoute />}
+                                />
+                                <NavLink
+                                    component={Link}
+                                    label="Wiki"
+                                    href="/wiki"
+                                    leftSection={<IconArticle />}
                                 />
                                 <NavLink
                                     component={Link}
