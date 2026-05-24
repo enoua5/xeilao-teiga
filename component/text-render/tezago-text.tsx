@@ -4,7 +4,6 @@ import React, {
     RefObject,
     useCallback,
     useEffect,
-    useMemo,
     useRef,
     useState,
 } from "react";
@@ -28,9 +27,9 @@ export default function TezagoText({
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
 
     const color_scheme = useColorScheme();
-    const style_color = useMemo(() => {
+    const getStyleColor = useCallback(() => {
         const image = image_ref.current;
-        if(image) {
+        if (image) {
             return getComputedStyle(image).color;
         } else {
             return color_scheme === "dark" ? "white" : "black";
@@ -42,13 +41,15 @@ export default function TezagoText({
     const renderImage = useCallback(() => {
         const image = image_ref.current;
         if (image && canvas) {
+            const style_color = getStyleColor();
+
             renderTezago(canvas, text, {
                 ...options,
                 color: options.color ?? style_color,
             });
             image.src = canvas.toDataURL();
         }
-    }, [canvas, options, style_color, text]);
+    }, [canvas, getStyleColor, options, text]);
 
     const renderImageRef = useCallback(
         (image: HTMLImageElement | null) => {
