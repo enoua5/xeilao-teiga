@@ -34,7 +34,15 @@ export const metadata: Metadata = {
     description: "Xeilao Teiga information archive",
 };
 
-const theme = createTheme({});
+const theme = createTheme({
+    white: "#ffffff",
+    black: "#171717",
+    colors: {},
+    primaryColor: "green",
+    autoContrast: true,
+    luminanceThreshold: 0.5,
+    respectReducedMotion: true,
+});
 
 export default function RootLayout({
     children,

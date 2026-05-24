@@ -4,10 +4,12 @@ import React, {
     RefObject,
     useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from "react";
 import { renderTezago, TezagoRenderOptions } from "./render-tezago";
+import { useColorScheme } from "@mantine/hooks";
 
 export interface TezagoTextProps extends TezagoRenderOptions {
     text: string;
@@ -25,27 +27,40 @@ export default function TezagoText({
     const image_ref: RefObject<HTMLImageElement | null> = useRef(null);
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
 
+    const color_scheme = useColorScheme();
+    const style_color = useMemo(() => {
+        const image = image_ref.current;
+        if(image) {
+            return getComputedStyle(image).color;
+        } else {
+            return color_scheme === "dark" ? "white" : "black";
+        }
+    }, [color_scheme]);
+
     useEffect(() => setCanvas(document.createElement("canvas")), []);
+
+    const renderImage = useCallback(() => {
+        const image = image_ref.current;
+        if (image && canvas) {
+            renderTezago(canvas, text, {
+                ...options,
+                color: options.color ?? style_color,
+            });
+            image.src = canvas.toDataURL();
+        }
+    }, [canvas, options, style_color, text]);
 
     const renderImageRef = useCallback(
         (image: HTMLImageElement | null) => {
             image_ref.current = image;
-            if (image && canvas) {
-                const style_color = getComputedStyle(image).color;
-
-                renderTezago(canvas, text, {
-                    ...options,
-                    color: options.color ?? style_color,
-                });
-                image.src = canvas.toDataURL();
-            }
+            renderImage();
         },
-        [canvas, options, text]
+        [renderImage]
     );
 
     useEffect(() => {
-        renderImageRef(image_ref.current);
-    }, [renderImageRef]);
+        renderImage();
+    }, [renderImage]);
 
     const image = (
         <span>
