@@ -21,7 +21,7 @@ import {
     BrandGithub,
     Home as IconHome,
     Route as IconMapRoute,
-    Article as IconArticle
+    Article as IconArticle,
 } from "tabler-icons-react";
 import Link from "next/link";
 import TezagoText from "@/component/text-render/tezago-text";

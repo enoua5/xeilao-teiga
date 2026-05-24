@@ -16,10 +16,8 @@ export default function CampaignHome() {
             </Title>
             <Text>
                 You are the crew and passengers aboard the{" "}
-                <Link href="/wiki/ship/azs-vanguard">
-                    {AZS_VANGUARD}
-                </Link>
-                . The ship has been chartered to the{" "}
+                <Link href="/wiki/ship/azs-vanguard">{AZS_VANGUARD}</Link>. The
+                ship has been chartered to the{" "}
                 <Link href="/wiki/todo">
                     Solarian Federation (
                     <TezagoText text="Meinato ki Sol" ruby />)
