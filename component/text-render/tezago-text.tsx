@@ -70,7 +70,11 @@ export default function TezagoText({
                 ref={renderImageRef}
                 src="#"
                 alt={text}
-                style={{ display: "inline", height: "1em" }}
+                style={{
+                    display: "inline",
+                    height: "1.5em",
+                    marginBottom: "-0.25em",
+                }}
             />
         </span>
     );
@@ -80,7 +84,9 @@ export default function TezagoText({
             <ruby>
                 {image}
                 <rp>(</rp>
-                <rt style={{ paddingBottom: "0.4em" }}>{text}</rt>
+                <rt style={{ paddingBottom: "0.6em", fontSize: "0.8em" }}>
+                    {text}
+                </rt>
                 <rp>)</rp>
             </ruby>
         );
