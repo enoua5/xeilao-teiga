@@ -6,18 +6,22 @@ export const metadata: Metadata = {
     title: "AZS Vanguard",
 };
 
-export const AZS_VANGUARD = (
-    <>
-        AZS Vanguard (
-        <TezagoText text="Veina Tezago" ruby />)
-    </>
-);
+export function AzsVanguardText({ ruby }: { ruby?: boolean }) {
+    return (
+        <>
+            AZS Vanguard (
+            <TezagoText text="Veina Tezago" ruby={ruby} />)
+        </>
+    );
+}
 
 export default function AzsVanguard() {
     return (
         <Stack>
-            <Title>{AZS_VANGUARD}</Title>
-            <Text>The AZS Vanguard is a ***-class ship built in 418</Text>
+            <Title>
+                <AzsVanguardText ruby />
+            </Title>
+            <Text>The AZS Vanguard is a ship built in 418</Text>
         </Stack>
     );
 }
