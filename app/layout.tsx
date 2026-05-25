@@ -20,6 +20,7 @@ const theme = createTheme({
     autoContrast: true,
     luminanceThreshold: 0.5,
     respectReducedMotion: true,
+    fontFamily: "noto sans"
 });
 
 export default function RootLayout({

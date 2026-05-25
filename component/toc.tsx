@@ -42,7 +42,7 @@ export default function ClientTableOfContents() {
                                   : {}
                         }
                     >
-                        {data.value.replaceAll(/^\(|\)$/g, "")}
+                        {data.value.replaceAll(/[\(\)]/g, "")}
                     </Text>
                 ),
             })}

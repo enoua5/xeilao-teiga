@@ -1,5 +1,5 @@
 import TezagoText from "@/component/text-render/tezago-text";
-import { Stack, Text, Title } from "@mantine/core";
+import { List, ListItem, Stack, Text, Title } from "@mantine/core";
 import { Metadata } from "next";
 import Link from "next/link";
 import { AzsVanguardText } from "../wiki/ship/azs-vanguard/page";
@@ -48,11 +48,22 @@ export default function CampaignHome() {
             </Text>
             <Title order={2}>Lore</Title>
             <Text>
-                You can find all lore I&apos;ve written down so far in the{" "}
-                <Link href="/wiki">Wiki</Link>. There, you will also find links
-                to various overview pages explaining particular sections of
-                lore.
+                I have put together these introductions to various aspects of
+                the setting. You are not required to read them to play the
+                campaign, but I would recommend it. These pages will also link
+                to the <Link href="/wiki">wiki</Link>. You are not expected to
+                explore the wiki at all, but you are free to do so if you are
+                curious.
             </Text>
+            <List>
+                <ListItem>
+                    <Link href="campaign/cosmology">
+                        Cosmology and Creation Myths
+                    </Link>
+                </ListItem>
+                <ListItem>History</ListItem>
+                <ListItem>Major locations and political entities</ListItem>
+            </List>
         </Stack>
     );
 }

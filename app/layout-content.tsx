@@ -47,7 +47,10 @@ export function LayoutContent({ children }: { children?: React.ReactNode }) {
             }}
             aside={{
                 breakpoint: "md",
-                width: "25ch",
+                width: {
+                    "base": "30ch",
+                    "lg": "40ch",
+                },
                 collapsed: { mobile: true, desktop: !has_h2 },
             }}
             padding="sm"

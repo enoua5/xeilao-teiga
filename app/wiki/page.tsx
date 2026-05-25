@@ -5,6 +5,7 @@ export default function WikiHome() {
     return (
         <Stack>
             <Title>Xeilao Teiga Wiki</Title>
+            <Title order={2}>Article Categories</Title>
             <List>
                 <ListItem>
                     <Link href="/wiki/ship">Ships</Link>
