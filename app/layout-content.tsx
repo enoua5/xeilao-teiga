@@ -2,6 +2,8 @@
 
 import ClientTableOfContents from "@/component/toc";
 import {
+    ActionIcon,
+    Affix,
     AppShell,
     AppShellAside,
     AppShellMain,
@@ -9,6 +11,7 @@ import {
     NavLink,
     Stack,
 } from "@mantine/core";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useLayoutEffect, useState } from "react";
@@ -17,6 +20,7 @@ import {
     Home as IconHome,
     Route as IconMapRoute,
     Article as IconArticle,
+    Menu2 as IconMenu,
 } from "tabler-icons-react";
 
 export function LayoutContent({ children }: { children?: React.ReactNode }) {
@@ -28,16 +32,21 @@ export function LayoutContent({ children }: { children?: React.ReactNode }) {
         setHasH2(document.getElementsByTagName("h2").length > 0);
     }, [pathname]);
 
+    const [mobile_menu_open, { toggle: toggleMobileMenuOpen }] =
+        useDisclosure(false);
+
+    const is_mobile = useMediaQuery("(max-width: 767px)");
+
     return (
         <AppShell
             header={{ height: "0" }}
             navbar={{
                 breakpoint: "sm",
                 width: "25ch",
-                collapsed: { mobile: true },
+                collapsed: { mobile: !mobile_menu_open, desktop: false },
             }}
             aside={{
-                breakpoint: "sm",
+                breakpoint: "md",
                 width: "25ch",
                 collapsed: { mobile: true, desktop: !has_h2 },
             }}
@@ -75,6 +84,18 @@ export function LayoutContent({ children }: { children?: React.ReactNode }) {
                 <ClientTableOfContents />
             </AppShellAside>
             <AppShellMain>{children}</AppShellMain>
+            {is_mobile && (
+                <Affix position={{ bottom: "1em", right: "1em" }}>
+                    <ActionIcon
+                        radius="xl"
+                        p="5px"
+                        size="lg"
+                        onClick={toggleMobileMenuOpen}
+                    >
+                        <IconMenu />
+                    </ActionIcon>
+                </Affix>
+            )}
         </AppShell>
     );
 }
